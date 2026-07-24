@@ -1,542 +1,437 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>ADELI Construction Co. Ltd | Juba's Premier Construction & Architectural Services</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>CIDA South Sudan | Empowering Communities, Building Resilience</title>
+    <meta name="description" content="Community Initiative Development Agency (CIDA) South Sudan – a national NGO improving lives through protection, peacebuilding, WASH, food security, education, and community development.">
+    <meta name="keywords" content="CIDA, South Sudan NGO, Kuajok, Warrap State, humanitarian, development, protection, peacebuilding, WASH, food security, education, gender equality">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Manrope', 'sans-serif'],
-                        serif: ['Cinzel', 'serif'],
+                        'display': ['"Playfair Display"', 'Georgia', 'serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            gold: '#D4AF37',
-                            dark: '#0F0F0F',
-                            gray: '#1A1A1A',
-                            light: '#F5F5F5'
-                        }
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'scale-in': 'scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'typing': 'typing 3.5s steps(40, end)',
-                        'blink-caret': 'blink-caret .75s step-end infinite'
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        scaleIn: {
-                            '0%': { opacity: '0', transform: 'scale(0.95)' },
-                            '100%': { opacity: '1', transform: 'scale(1)' },
-                        },
-                        typing: {
-                            '0%': { width: '0' },
-                            '100%': { width: '100%' },
-                        },
-                        'blink-caret': {
-                            'from, to': { borderColor: 'transparent' },
-                            '50%': { borderColor: '#D4AF37' }
-                        }
+                        'navy': '#06283D',
+                        'navy-light': '#0a3d5c',
+                        'forest': '#1B5E45',
+                        'forest-light': '#247a5a',
+                        'gold': '#D4A017',
+                        'gold-light': '#e8b830',
+                        'cream': '#fdfaf3',
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            background-color: #0F0F0F;
-            color: #F5F5F5;
-            overflow-x: hidden;
-        }
-        
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0F0F0F;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
+        :root { --navy: #06283D; --forest: #1B5E45; --gold: #D4A017; }
+        * { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; background-color: #ffffff; overflow-x: hidden; }
+        .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+        /* Premium card hover */
+        .card-hover { transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s ease; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 30px 50px -12px rgba(6,40,61,0.2); }
+
+        /* Overlays */
+        .overlay-hero { background: linear-gradient(135deg, rgba(6,40,61,0.65) 0%, rgba(6,40,61,0.4) 35%, rgba(27,94,69,0.2) 65%, rgba(6,40,61,0.3) 100%); }
+        .overlay-impact { background: rgba(6,40,61,0.5); }
+
+        /* Dropdown */
+        .dropdown-menu { opacity: 0; transform: translateY(12px); pointer-events: none; transition: 0.3s ease; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+        .dropdown-trigger:hover .dropdown-menu, .dropdown-menu.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+        /* Mobile menu */
+        .mobile-menu { transform: translateX(100%); transition: 0.4s cubic-bezier(0.23,1,0.32,1); }
+        .mobile-menu.open { transform: translateX(0); }
+        .mobile-dropdown-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .mobile-dropdown-menu.open { max-height: 500px; }
+        .mobile-dropdown-btn i { transition: transform 0.3s; }
+        .mobile-dropdown-btn.open i { transform: rotate(180deg); }
+
+        /* Animations */
+        @keyframes bounceDown { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+        .scroll-indicator { animation: bounceDown 2s infinite; }
+        @keyframes floatGentle { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .float-gentle { animation: floatGentle 5s infinite; }
+        .float-gentle-delay { animation: floatGentle 5s 2.5s infinite; }
+        @keyframes pulseGold { 0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0.6); } 50% { box-shadow: 0 0 0 15px rgba(212,160,23,0); } }
+        .pulse-gold { animation: pulseGold 2.5s infinite; }
+
+        /* Partner carousel */
+        .partner-carousel-wrapper { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
+        .partner-carousel-track { display: flex; width: max-content; animation: infiniteScroll 35s linear infinite; }
+        .partner-carousel-track:hover { animation-play-state: paused; }
+        @keyframes infiniteScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.23,1,0.32,1), transform 0.8s cubic-bezier(0.23,1,0.32,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .img-reveal { clip-path: inset(0 100% 0 0); transition: clip-path 1.2s cubic-bezier(0.23,1,0.32,1); }
+        .img-reveal.visible { clip-path: inset(0 0% 0 0); }
+
+        @media (max-width: 767px) {
+            .img-reveal { clip-path: inset(0 0% 0 0) !important; opacity: 1 !important; transform: none !important; }
         }
 
-        .glass {
-            background: rgba(15, 15, 15, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
+        /* Story cards */
+        .story-card { border-left: 4px solid var(--gold); transition: all 0.3s ease; }
+        .story-card:hover { border-left-color: var(--forest); background: #fff; box-shadow: 0 20px 30px -10px rgba(0,0,0,0.08); }
 
-        .glass-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        /* News cards */
+        .news-card { transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05); }
+        .news-card:hover { border-color: rgba(212,160,23,0.3); background: #fff; }
 
-        .glass-card:hover {
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+        /* Glass effects */
+        .glass { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.4); }
+        .glass-dark { background: rgba(6,40,61,0.75); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
 
-        .typing-cursor::after {
-            content: '|';
-            animation: blink-caret .75s step-end infinite;
-            color: #D4AF37;
-            margin-left: 2px;
-        }
-
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(15,15,15,0.2) 0%, rgba(15,15,15,0.9) 100%);
-        }
-        
-        .modern-input {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            transition: all 0.4s ease;
-        }
-        .modern-input:focus {
-            outline: none;
-            border-color: #D4AF37;
-            background: rgba(255,255,255,0.05);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        @media (max-width: 768px) {
-            .parallax-bg {
-                background-attachment: scroll;
-            }
-        }
-
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #D4AF37 0%, #F2D06B 50%, #D4AF37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .btn-luxury {
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .btn-luxury::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-            z-index: -1;
-        }
-        .btn-luxury:hover::before {
-            left: 100%;
-        }
-
-        #mobile-menu {
-            transition: all 0.3s ease-in-out;
-        }
-        @media (max-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        /* Support Us button */
+        .support-btn { background: linear-gradient(135deg, #D4A017, #e8b830); color: #06283D; font-weight: 700; letter-spacing: 0.01em; }
+        .support-btn:hover { background: linear-gradient(135deg, #e8b830, #D4A017); transform: translateY(-1px); box-shadow: 0 10px 20px rgba(212,160,23,0.4); }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-gold selection:text-brand-dark">
+<body class="text-gray-800 bg-white">
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-4 lg:px-12 border-b border-white/0">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl lg:text-2xl font-serif font-bold tracking-widest text-white flex items-center gap-2 lg:gap-3 group">
-                <span class="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-brand-gold to-yellow-600 rounded-sm flex items-center justify-center text-brand-dark font-black text-base lg:text-xl shadow-lg group-hover:shadow-brand-gold/50 transition-all duration-300">A</span>
-                <div class="flex flex-col">
-                    <span class="leading-none text-sm lg:text-base">ADELI</span>
-                    <span class="text-[0.55rem] lg:text-xs text-brand-gold tracking-[0.2em] lg:tracking-[0.3em] leading-none mt-0.5 lg:mt-1">CONSTRUCTION</span>
-                </div>
-            </a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-6 lg:space-x-10">
-                <a href="#home" class="text-xs font-medium text-gray-300 hover:text-brand-gold transition-colors tracking-widest uppercase">Home</a>
-                <a href="#about" class="text-xs font-medium text-gray-300 hover:text-brand-gold transition-colors tracking-widest uppercase">About</a>
-                <a href="#services" class="text-xs font-medium text-gray-300 hover:text-brand-gold transition-colors tracking-widest uppercase">Services</a>
-                <a href="#team" class="text-xs font-medium text-gray-300 hover:text-brand-gold transition-colors tracking-widest uppercase">Team</a>
-                <a href="#gallery" class="text-xs font-medium text-gray-300 hover:text-brand-gold transition-colors tracking-widest uppercase">Gallery</a>
-                <a href="#areas" class="text-xs font-medium text-gray-300 hover:text-brand-gold transition-colors tracking-widest uppercase">Areas</a>
-                <a href="#contact" class="px-6 lg:px-8 py-2.5 lg:py-3 bg-gradient-to-r from-brand-gold to-yellow-600 text-brand-dark text-xs font-bold tracking-widest uppercase rounded-sm hover:shadow-lg hover:shadow-brand-gold/30 transition-all duration-300 btn-luxury">Get a Quote</a>
+    <!-- Top Bar -->
+    <div class="hidden lg:block bg-navy text-white/85 text-xs py-2.5 px-6 z-50 relative">
+        <div class="max-w-7xl mx-auto flex justify-between">
+            <div class="flex items-center gap-6">
+                <a href="tel:+211921621500" class="hover:text-gold flex items-center gap-2"><i class="fa-solid fa-phone text-[10px] text-gold"></i> +211 921 621 500</a>
+                <span class="text-white/25">|</span>
+                <a href="mailto:info@cida-ss.org" class="hover:text-gold flex items-center gap-2"><i class="fa-solid fa-envelope text-[10px] text-gold"></i> info@cida-ss.org</a>
             </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+            <div class="flex items-center gap-5">
+                <a href="#careers" class="hover:text-gold">Careers</a>
+                <a href="#" class="hover:text-gold" onclick="event.preventDefault()">Team</a>
+                <a href="#donate" class="bg-gold text-navy font-semibold px-5 py-2 rounded-full pulse-gold">Donate Now <i class="fa-solid fa-heart ml-1.5"></i></a>
+            </div>
         </div>
-        
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass border-t border-white/10 md:hidden flex-col p-6 space-y-5 backdrop-blur-xl">
-            <a href="#home" class="block text-base font-medium text-white hover:text-brand-gold">Home</a>
-            <a href="#about" class="block text-base font-medium text-white hover:text-brand-gold">About</a>
-            <a href="#services" class="block text-base font-medium text-white hover:text-brand-gold">Services</a>
-            <a href="#team" class="block text-base font-medium text-white hover:text-brand-gold">Team</a>
-            <a href="#gallery" class="block text-base font-medium text-white hover:text-brand-gold">Gallery</a>
-            <a href="#areas" class="block text-base font-medium text-white hover:text-brand-gold">Service Areas</a>
-            <a href="#contact" class="block text-base font-medium text-brand-gold">Contact Us</a>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="mainNav" class="fixed top-0 lg:top-[37px] w-full z-40 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between py-4">
+                <a href="#" class="flex items-center gap-3 z-50">
+                    <div class="w-11 h-11 bg-gold rounded-lg flex items-center justify-center shadow-lg">
+                        <span class="font-display font-bold text-navy text-lg">CIDA</span>
+                    </div>
+                    <div class="hidden sm:block">
+                        <span class="font-display font-semibold text-white text-lg leading-tight">CIDA South Sudan</span>
+                        <span class="text-white/70 text-[10px] tracking-widest uppercase">Community Initiative</span>
+                    </div>
+                </a>
+                <div class="hidden lg:flex items-center gap-1">
+                    <a href="#" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium">Home</a>
+                    <div class="dropdown-trigger relative">
+                        <button class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium flex items-center gap-1">About <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
+                        <div class="dropdown-menu absolute top-full left-0 mt-1 bg-white rounded-xl py-2 min-w-[200px] border">
+                            <a href="#about" class="block px-4 py-2.5 text-sm hover:bg-cream">Our Story</a>
+                            <a href="#about" class="block px-4 py-2.5 text-sm hover:bg-cream">Mission & Vision</a>
+                            <a href="#about" class="block px-4 py-2.5 text-sm hover:bg-cream">Values</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-trigger relative">
+                        <button class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium flex items-center gap-1">Programs <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
+                        <div class="dropdown-menu absolute top-full left-0 mt-1 bg-white rounded-xl py-2 min-w-[220px] border">
+                            <a href="#programs" class="block px-4 py-2.5 text-sm hover:bg-cream">Protection</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm hover:bg-cream">Peacebuilding</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm hover:bg-cream">WASH</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm hover:bg-cream">Food Security</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm hover:bg-cream">Education</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm hover:bg-cream">Gender Equality</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm hover:bg-cream">Community Development</a>
+                        </div>
+                    </div>
+                    <a href="#projects" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium">Projects</a>
+                    <a href="#impact" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium">Impact</a>
+                    <a href="#stories" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium">Stories</a>
+                    <a href="#news" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium">News & Updates</a>
+                    <a href="#partners" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium">Partners</a>
+                    <a href="#" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium" onclick="event.preventDefault()">Team</a>
+                    <a href="#contact" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+                <!-- Fixed Support Us button -->
+                <div class="hidden lg:block">
+                    <a href="#donate" class="support-btn px-6 py-2.5 rounded-full text-sm shadow-lg transition-all duration-300">Support Us <i class="fa-solid fa-heart ml-1.5 text-xs"></i></a>
+                </div>
+                <button id="mobileMenuBtn" class="lg:hidden z-50 text-white p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-navy/98 backdrop-blur-xl flex flex-col pt-24 px-8 lg:hidden">
+        <div class="flex flex-col gap-1 overflow-y-auto max-h-[80vh]">
+            <a href="#" class="text-white text-lg py-3 border-b border-white/10 font-medium">Home</a>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn w-full flex items-center justify-between text-white text-lg py-3 border-b border-white/10 font-medium" onclick="toggleMobileDropdown(this)">About <i class="fa-solid fa-chevron-down text-xs"></i></button>
+                <div class="mobile-dropdown-menu pl-4 space-y-1">
+                    <a href="#about" class="block text-white/70 text-base py-2">Our Story</a>
+                    <a href="#about" class="block text-white/70 text-base py-2">Mission & Vision</a>
+                    <a href="#about" class="block text-white/70 text-base py-2">Values</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn w-full flex items-center justify-between text-white text-lg py-3 border-b border-white/10 font-medium" onclick="toggleMobileDropdown(this)">Programs <i class="fa-solid fa-chevron-down text-xs"></i></button>
+                <div class="mobile-dropdown-menu pl-4 space-y-1">
+                    <a href="#programs" class="block text-white/70 text-base py-2">Protection</a>
+                    <a href="#programs" class="block text-white/70 text-base py-2">Peacebuilding</a>
+                    <a href="#programs" class="block text-white/70 text-base py-2">WASH</a>
+                    <a href="#programs" class="block text-white/70 text-base py-2">Food Security</a>
+                    <a href="#programs" class="block text-white/70 text-base py-2">Education</a>
+                    <a href="#programs" class="block text-white/70 text-base py-2">Gender Equality</a>
+                    <a href="#programs" class="block text-white/70 text-base py-2">Community Development</a>
+                </div>
+            </div>
+            <a href="#projects" class="text-white text-lg py-3 border-b border-white/10 font-medium">Projects</a>
+            <a href="#impact" class="text-white text-lg py-3 border-b border-white/10 font-medium">Impact</a>
+            <a href="#stories" class="text-white text-lg py-3 border-b border-white/10 font-medium">Stories</a>
+            <a href="#news" class="text-white text-lg py-3 border-b border-white/10 font-medium">News & Updates</a>
+            <a href="#partners" class="text-white text-lg py-3 border-b border-white/10 font-medium">Partners</a>
+            <a href="#" class="text-white text-lg py-3 border-b border-white/10 font-medium" onclick="event.preventDefault()">Team</a>
+            <a href="#contact" class="text-white text-lg py-3 border-b border-white/10 font-medium">Contact</a>
+            <a href="#donate" class="support-btn px-6 py-3 rounded-full text-center mt-6 text-lg shadow-lg">Support Us <i class="fa-solid fa-heart ml-1.5"></i></a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <header id="home" class="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-24 lg:pt-0">
-        <div class="absolute inset-0 z-0 parallax-bg" style="background-image: url('https://image.qwenlm.ai/public_source/30fc3533-c093-40eb-98a7-78430891ab04/176c32cd9-0f0b-4166-acbd-d6c82bba9a22.png');"></div>
-        <div class="absolute inset-0 bg-black/50 hero-overlay"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-8 lg:pt-20">
-            <div class="text-left space-y-5 lg:space-y-8 animate-fade-in-up">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 lg:px-4 lg:py-2 border border-brand-gold/30 rounded-full bg-black/40 backdrop-blur-md">
-                    <span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full animate-pulse"></span>
-                    <span class="text-brand-gold text-[0.6rem] lg:text-xs font-bold tracking-[0.15em] lg:tracking-[0.2em] uppercase">South Sudan's Premier Builder</span>
-                </div>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold leading-none text-white">
-                    Building <br>
-                    <span class="text-gradient-gold typing-cursor" id="typing-text"></span>
-                </h1>
-                <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl max-w-lg leading-relaxed font-light">
-                    ADELI Construction Co. Ltd — delivering high-quality construction and architectural services in Juba, South Sudan. Durable, modern, and client-focused properties.
-                </p>
-                <div class="flex flex-wrap gap-4 pt-2 lg:pt-4">
-                    <a href="#gallery" class="px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-brand-gold to-yellow-600 text-brand-dark font-bold tracking-widest uppercase rounded-sm text-xs lg:text-sm hover:shadow-lg hover:shadow-brand-gold/30 transition-all duration-300 btn-luxury">View Projects</a>
-                    <a href="#about" class="px-6 lg:px-8 py-3 lg:py-4 border border-white/30 text-white font-bold tracking-widest uppercase rounded-sm text-xs lg:text-sm hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">Our Story</a>
-                </div>
-            </div>
-
-            <!-- Quote Form -->
-            <div class="mt-10 lg:mt-0 glass p-6 sm:p-8 lg:p-10 rounded-2xl border border-white/10 shadow-2xl animate-scale-in w-full max-w-md mx-auto lg:mx-0 lg:max-w-none" style="animation-delay: 0.3s;">
-                <div class="mb-6 lg:mb-8">
-                    <h3 class="text-2xl lg:text-3xl font-serif font-bold mb-2">Request Consultation</h3>
-                    <p class="text-gray-400 text-xs lg:text-sm">Start your construction journey with ADELI today.</p>
-                </div>
-                <form class="space-y-4 lg:space-y-5" onsubmit="event.preventDefault(); alert('Thank you! ADELI Construction team will contact you shortly.');">
-                    <div class="grid grid-cols-2 gap-3 lg:gap-4">
-                        <input type="text" placeholder="First Name" class="modern-input w-full px-4 lg:px-5 py-3 lg:py-4 rounded-sm text-xs lg:text-sm font-light">
-                        <input type="text" placeholder="Last Name" class="modern-input w-full px-4 lg:px-5 py-3 lg:py-4 rounded-sm text-xs lg:text-sm font-light">
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-navy">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/cida1.jpg" alt="Community in South Sudan" class="w-full h-full object-cover filter brightness-90">
+            <div class="absolute inset-0 overlay-hero"></div>
+        </div>
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-28 lg:pt-20 pb-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="reveal"><span class="inline-block text-gold text-xs lg:text-sm tracking-[0.25em] uppercase font-semibold border border-gold/40 rounded-full px-4 py-1.5">NGO | South Sudan | Est. 2015</span></div>
+                    <h1 class="reveal reveal-delay-1 font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08]" style="text-shadow:0 6px 24px rgba(0,0,0,0.5);">
+                        Empowering Communities.<br>Building Resilience.<br>
+                        <span class="text-gold italic font-medium">Driving Sustainable Change.</span>
+                    </h1>
+                    <p class="reveal reveal-delay-2 text-white/90 text-base sm:text-lg max-w-lg leading-relaxed font-light" style="text-shadow:0 2px 12px rgba(0,0,0,0.4);">
+                        CIDA South Sudan works with vulnerable communities across Warrap State and beyond, delivering protection, peacebuilding, WASH, food security, and education programs.
+                    </p>
+                    <div class="reveal reveal-delay-3 flex flex-wrap gap-4">
+                        <a href="#about" class="bg-gold text-navy font-semibold px-8 py-3.5 rounded-full text-sm lg:text-base hover:bg-gold-light shadow-xl inline-flex items-center gap-2">Discover Our Work <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        <a href="#donate" class="border-2 border-white/50 text-white font-semibold px-8 py-3.5 rounded-full text-sm lg:text-base hover:bg-white hover:text-navy inline-flex items-center gap-2">Support Our Mission <i class="fa-solid fa-heart text-xs"></i></a>
                     </div>
-                    <input type="email" placeholder="Email Address" class="modern-input w-full px-4 lg:px-5 py-3 lg:py-4 rounded-sm text-xs lg:text-sm font-light">
-                    <input type="tel" placeholder="Phone Number" class="modern-input w-full px-4 lg:px-5 py-3 lg:py-4 rounded-sm text-xs lg:text-sm font-light">
-                    <select class="modern-input w-full px-4 lg:px-5 py-3 lg:py-4 rounded-sm text-xs lg:text-sm text-gray-400 font-light cursor-pointer">
-                        <option value="" disabled selected>Select Service</option>
-                        <option value="construction">Construction Services</option>
-                        <option value="architectural">Architectural Design</option>
-                        <option value="engineering">Engineering Services</option>
-                        <option value="full">Full Project Management</option>
-                    </select>
-                    <textarea placeholder="Project Details" rows="3" class="modern-input w-full px-4 lg:px-5 py-3 lg:py-4 rounded-sm text-xs lg:text-sm font-light"></textarea>
-                    <button type="submit" class="w-full py-4 lg:py-5 bg-gradient-to-r from-brand-gold to-yellow-600 text-brand-dark font-bold tracking-widest uppercase rounded-sm text-xs lg:text-sm hover:shadow-lg hover:shadow-brand-gold/30 transition-all duration-300 transform hover:scale-[1.02] btn-luxury">
-                        Request Quote
-                    </button>
-                </form>
+                </div>
+                <div class="reveal reveal-delay-4 hidden lg:flex flex-col gap-6 items-end">
+                    <div class="float-gentle bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20"><div class="text-gold text-3xl font-display font-bold">10K+</div><div class="text-white/80 text-sm">People Reached</div></div>
+                    <div class="float-gentle-delay bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 ml-8"><div class="text-gold text-3xl font-display font-bold">20+</div><div class="text-white/80 text-sm">Projects</div></div>
+                    <div class="float-gentle bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 ml-4"><div class="text-gold text-3xl font-display font-bold">8</div><div class="text-white/80 text-sm">Counties</div></div>
+                </div>
             </div>
         </div>
-        
-        <div class="absolute bottom-5 lg:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-5 h-5 lg:w-6 lg:h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    </section>
+
+    <!-- Why CIDA Exists -->
+    <section class="py-20 lg:py-28 bg-cream relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10"><div class="absolute top-10 right-10 w-72 h-72 bg-gold rounded-full blur-3xl"></div><div class="absolute bottom-10 left-10 w-96 h-96 bg-forest rounded-full blur-3xl"></div></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 reveal">
+                    <span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Our Purpose</span>
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy leading-tight">Why CIDA <span class="text-forest italic">Exists</span></h2>
+                    <p class="text-gray-600 text-lg leading-relaxed">CIDA believes that sustainable development begins with empowered communities. By working hand in hand with local people, government institutions, and international partners, we create practical solutions that address immediate humanitarian needs while laying the foundation for long-term peace, resilience, and inclusive development across South Sudan.</p>
+                    <a href="#programs" class="inline-flex items-center gap-2 bg-navy text-white font-semibold px-8 py-3.5 rounded-full hover:bg-navy-light shadow-lg">Explore Our Programs <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+                <div class="reveal reveal-delay-2 relative">
+                    <div class="img-reveal rounded-2xl overflow-hidden shadow-2xl"><img src="assets/cida2.jpg" alt="Community hope" class="w-full h-[400px] lg:h-[500px] object-cover"></div>
+                </div>
+            </div>
         </div>
-    </header>
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 lg:py-32 bg-brand-dark relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-48 lg:w-96 h-48 lg:h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-48 lg:w-96 h-48 lg:h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="relative reveal group order-2 lg:order-1 mt-12 lg:mt-0">
-                    <div class="absolute -top-4 -left-4 lg:-top-6 lg:-left-6 w-20 lg:w-32 h-20 lg:h-32 border-t-2 border-l-2 border-brand-gold/50"></div>
-                    <img src="https://image.qwenlm.ai/public_source/30fc3533-c093-40eb-98a7-78430891ab04/17675c906-fa51-4b31-90c7-7b9c4c2b1165.png" alt="ADELI Construction Team" class="rounded-sm shadow-2xl w-full object-cover h-[400px] lg:h-[600px] grayscale group-hover:grayscale-0 transition-all duration-1000">
-                    <div class="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-6 w-20 lg:w-32 h-20 lg:h-32 border-b-2 border-r-2 border-brand-gold/50"></div>
-                    <div class="absolute -bottom-8 -left-4 lg:-bottom-10 lg:-left-10 bg-brand-gold text-brand-dark p-4 lg:p-6 rounded-sm shadow-xl">
-                        <span class="block text-2xl lg:text-4xl font-serif font-bold">10+</span>
-                        <span class="text-[0.5rem] lg:text-xs font-bold tracking-widest uppercase">Years of Excellence</span>
-                    </div>
-                </div>
-                <div class="reveal order-1 lg:order-2">
-                    <h2 class="text-brand-gold font-bold tracking-[0.2em] lg:tracking-[0.3em] uppercase text-xs lg:text-sm mb-3 lg:mb-4">About ADELI</h2>
-                    <h3 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white mb-4 lg:mb-8 leading-tight">Building Your Dream <br><span class="text-gradient-gold">with Passion & Integrity</span></h3>
-                    <p class="text-gray-400 text-sm lg:text-lg mb-6 lg:mb-8 leading-relaxed font-light">
-                        Based in Hai Amarat, Juba, ADELI Construction Co. Ltd is a professional construction and architectural company established with a vision to deliver high-quality services. We are committed to building durable, modern, and client-focused residential and commercial properties.
-                    </p>
-                    <p class="text-gray-400 text-sm lg:text-lg mb-8 lg:mb-12 leading-relaxed font-light">
-                        With a strong reputation for honesty, professionalism, and reliability, we have become a trusted name for individuals and businesses looking to turn their construction dreams into reality.
-                    </p>
-                    <div class="grid grid-cols-3 gap-4 lg:gap-8 border-t border-white/10 pt-8 lg:pt-12">
-                        <div>
-                            <span class="block text-2xl lg:text-4xl font-serif font-bold text-white">100+</span>
-                            <span class="text-[0.6rem] lg:text-sm text-gray-500 uppercase tracking-widest">Projects</span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl lg:text-4xl font-serif font-bold text-white">100%</span>
-                            <span class="text-[0.6rem] lg:text-sm text-gray-500 uppercase tracking-widest">Satisfaction</span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl lg:text-4xl font-serif font-bold text-white">24/7</span>
-                            <span class="text-[0.6rem] lg:text-sm text-gray-500 uppercase tracking-widest">Support</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Why Choose Us & Commitment -->
-            <div class="mt-16 lg:mt-24 grid md:grid-cols-2 gap-8 reveal">
-                <div class="glass-card p-6 lg:p-8 rounded-xl">
-                    <h4 class="text-brand-gold font-bold text-lg mb-4 flex items-center gap-2"><span class="text-2xl">✓</span> Why Choose Us</h4>
-                    <ul class="space-y-3 text-gray-300 text-sm lg:text-base">
-                        <li class="flex items-start gap-2"><span class="text-brand-gold">▹</span> Professional and experienced team</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-gold">▹</span> Commitment to quality and durability</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-gold">▹</span> Transparent and honest client relationships</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-gold">▹</span> Fully registered and trusted company</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-gold">▹</span> Focus on client satisfaction and safety</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-6 lg:p-8 rounded-xl text-center flex flex-col justify-center">
-                    <p class="text-brand-gold text-3xl lg:text-5xl font-serif mb-3">“</p>
-                    <p class="text-white text-base lg:text-xl italic font-light">Building Your Dream with Passion.</p>
-                    <p class="text-gray-400 text-sm mt-4">— ADELI Construction Co. Ltd Commitment</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section (updated to match ADELI services) -->
-    <section id="services" class="py-20 lg:py-32 bg-brand-gray relative">
+    <section id="about" class="py-20 lg:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 lg:mb-20 reveal">
-                <h2 class="text-brand-gold font-bold tracking-[0.2em] lg:tracking-[0.3em] uppercase text-xs lg:text-sm mb-3 lg:mb-4">Our Expertise</h2>
-                <h3 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white mb-4 lg:mb-6">Comprehensive <br>Construction Solutions</h3>
-                <p class="text-gray-400 text-sm lg:text-lg max-w-2xl mx-auto font-light">Tailored services for residential, commercial, and architectural excellence.</p>
-            </div>
-
-            <div class="space-y-16 lg:space-y-24">
-                <!-- Construction Services -->
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center reveal">
-                    <div class="order-2 lg:order-1">
-                        <div class="glass-card p-6 lg:p-10 rounded-2xl h-full">
-                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-brand-gold/20 to-brand-gold/5 rounded-full flex items-center justify-center mb-4 lg:mb-8">
-                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                            </div>
-                            <h3 class="text-2xl lg:text-3xl font-serif font-bold text-white mb-4 lg:mb-6">Construction Services</h3>
-                            <p class="text-gray-400 text-sm lg:text-base mb-6 lg:mb-8 font-light leading-relaxed">
-                                From residential homes to commercial complexes, we deliver structural excellence and finishing that stands the test of time.
-                            </p>
-                            <ul class="space-y-2 lg:space-y-3 mb-6 lg:mb-8 text-gray-300 text-sm lg:text-base font-light">
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>Residential Building Construction</li>
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>Apartment & Commercial Projects</li>
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>Structural Development & Finishing</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="order-1 lg:order-2 relative group">
-                        <div class="absolute inset-0 bg-brand-gold/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                        <img src="https://image.qwenlm.ai/public_source/30fc3533-c093-40eb-98a7-78430891ab04/13bb47788-6f6d-4366-826e-6b8751e3e5f1.png" alt="Construction Project" class="relative rounded-sm shadow-2xl w-full object-cover h-[300px] lg:h-[500px] transition-transform duration-700 group-hover:scale-[1.02]">
-                    </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative reveal">
+                    <div class="img-reveal rounded-2xl overflow-hidden shadow-2xl"><img src="asets/cida1.jpg" alt="Community workers" class="w-full h-[400px] lg:h-[600px] object-cover"></div>
                 </div>
-
-                <!-- Architectural Design -->
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center reveal">
-                    <div class="relative group order-1">
-                        <div class="absolute inset-0 bg-brand-gold/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                        <img src="https://image.qwenlm.ai/public_source/30fc3533-c093-40eb-98a7-78430891ab04/16c398d5b-df88-42a7-8755-f8923d7698cc.png" alt="Architectural Design" class="relative rounded-sm shadow-2xl w-full object-cover h-[300px] lg:h-[500px] transition-transform duration-700 group-hover:scale-[1.02]">
+                <div class="space-y-8">
+                    <div class="reveal"><span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Who We Are</span>
+                        <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-3">Dedicated to <span class="text-forest italic">Community Transformation</span></h2>
                     </div>
-                    <div class="order-2">
-                        <div class="glass-card p-6 lg:p-10 rounded-2xl h-full">
-                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-brand-gold/20 to-brand-gold/5 rounded-full flex items-center justify-center mb-4 lg:mb-8">
-                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                            </div>
-                            <h3 class="text-2xl lg:text-3xl font-serif font-bold text-white mb-4 lg:mb-6">Architectural Design</h3>
-                            <p class="text-gray-400 text-sm lg:text-base mb-6 lg:mb-8 font-light leading-relaxed">
-                                Innovative, modern architectural solutions tailored to your vision. We turn concepts into blueprints for stunning and functional spaces.
-                            </p>
-                            <ul class="space-y-2 lg:space-y-3 mb-6 lg:mb-8 text-gray-300 text-sm lg:text-base font-light">
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>House Design & Planning</li>
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>Modern Architectural Solutions</li>
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>Customized Client-Focused Designs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Engineering Services -->
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center reveal">
-                    <div class="order-2 lg:order-1">
-                        <div class="glass-card p-6 lg:p-10 rounded-2xl h-full">
-                            <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-brand-gold/20 to-brand-gold/5 rounded-full flex items-center justify-center mb-4 lg:mb-8">
-                                <svg class="w-6 h-6 lg:w-8 lg:h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                            <h3 class="text-2xl lg:text-3xl font-serif font-bold text-white mb-4 lg:mb-6">Engineering Services</h3>
-                            <p class="text-gray-400 text-sm lg:text-base mb-6 lg:mb-8 font-light leading-relaxed">
-                                Precision engineering, project supervision, and quality assurance to ensure every structure meets the highest standards of safety and durability.
-                            </p>
-                            <ul class="space-y-2 lg:space-y-3 mb-6 lg:mb-8 text-gray-300 text-sm lg:text-base font-light">
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>Project Supervision & Site Management</li>
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>Quality Control & Assurance</li>
-                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-brand-gold rounded-full"></span>Structural Integrity Audits</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="order-1 lg:order-2 relative group">
-                        <div class="absolute inset-0 bg-brand-gold/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                        <img src="https://image.qwenlm.ai/public_source/30fc3533-c093-40eb-98a7-78430891ab04/14fe7674c-5f53-4f60-9596-e4566709f018.png" alt="Engineering & Quality" class="relative rounded-sm shadow-2xl w-full object-cover h-[300px] lg:h-[500px] transition-transform duration-700 group-hover:scale-[1.02]">
+                    <p class="reveal reveal-delay-1 text-gray-600 text-lg">CIDA is a national humanitarian and development organization established in 2015, working to improve the lives of vulnerable communities across South Sudan through protection, peacebuilding, and sustainable development.</p>
+                    <div class="grid sm:grid-cols-3 gap-4 reveal reveal-delay-2">
+                        <div class="bg-cream rounded-xl p-5"><div class="w-10 h-10 bg-gold/15 rounded-lg flex items-center mb-3"><i class="fa-solid fa-bullseye text-gold"></i></div><h4 class="font-semibold text-navy text-sm">Mission</h4><p class="text-gray-500 text-xs">Empower vulnerable communities through humanitarian and development initiatives.</p></div>
+                        <div class="bg-cream rounded-xl p-5"><div class="w-10 h-10 bg-forest/15 rounded-lg flex items-center mb-3"><i class="fa-solid fa-eye text-forest"></i></div><h4 class="font-semibold text-navy text-sm">Vision</h4><p class="text-gray-500 text-xs">A peaceful, resilient, and self-reliant South Sudan.</p></div>
+                        <div class="bg-cream rounded-xl p-5"><div class="w-10 h-10 bg-navy/10 rounded-lg flex items-center mb-3"><i class="fa-solid fa-hand-holding-heart text-navy"></i></div><h4 class="font-semibold text-navy text-sm">Values</h4><p class="text-gray-500 text-xs">Integrity, Accountability, Inclusion, Gender Equality, Sustainability.</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section (NEW) -->
-    <section id="team" class="py-20 lg:py-32 bg-brand-dark relative">
+    <!-- Programs Section -->
+    <section id="programs" class="py-20 lg:py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 lg:mb-20 reveal">
-                <h2 class="text-brand-gold font-bold tracking-[0.2em] uppercase text-xs lg:text-sm mb-3">Our Leadership</h2>
-                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-4">Qualified Engineers & Architects</h3>
-                <p class="text-gray-400 text-sm lg:text-lg max-w-2xl mx-auto">Dedicated professionals driving excellence in every project.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
-                <div class="glass-card p-6 lg:p-8 rounded-xl text-center reveal">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-brand-gold/20 to-brand-gold/10 rounded-full flex items-center justify-center mb-5 text-3xl font-bold text-brand-gold border border-brand-gold/30">AD</div>
-                    <h4 class="text-xl font-serif font-bold text-white">Construction Experts</h4>
-                    <p class="text-brand-gold text-sm uppercase tracking-wider mt-1">Expert Teams</p>
-                    <p class="text-gray-400 text-sm mt-3">Visionary leader with 15+ years in construction, committed to integrity and quality.</p>
-                </div>
-                <div class="glass-card p-6 lg:p-8 rounded-xl text-center reveal">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-brand-gold/20 to-brand-gold/10 rounded-full flex items-center justify-center mb-5 text-3xl font-bold text-brand-gold border border-brand-gold/30">SJ</div>
-                    <h4 class="text-xl font-serif font-bold text-white">Archictectures</h4>
-                    <p class="text-brand-gold text-sm uppercase tracking-wider mt-1">Lead Architect</p>
-                    <p class="text-gray-400 text-sm mt-3">Award-winning architectural designer specializing in modern sustainable solutions.</p>
-                </div>
-                <div class="glass-card p-6 lg:p-8 rounded-xl text-center reveal">
-                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-brand-gold/20 to-brand-gold/10 rounded-full flex items-center justify-center mb-5 text-3xl font-bold text-brand-gold border border-brand-gold/30">MD</div>
-                    <h4 class="text-xl font-serif font-bold text-white">Experts Projects management</h4>
-                    <p class="text-brand-gold text-sm uppercase tracking-wider mt-1">Project Manager</p>
-                    <p class="text-gray-400 text-sm mt-3">Expert in site management, quality control, and delivering projects on schedule.</p>
-                </div>
+            <div class="text-center mb-16 reveal"><span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Areas of Work</span><h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-3">Our <span class="text-forest italic">Programs</span></h2></div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md reveal"><div class="h-52 bg-gradient-to-br from-navy to-navy-light relative"><div class="absolute bottom-4 left-4 text-white"><div class="w-9 h-9 bg-gold rounded-lg flex items-center mb-2"><i class="fa-solid fa-shield-halved text-navy"></i></div><h3 class="font-display font-semibold text-lg">Protection</h3></div></div><div class="p-5"><p class="text-gray-500 text-sm">Strengthening protection systems for vulnerable populations, women, children, IDPs, and returnees.</p></div></div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md reveal reveal-delay-1"><div class="h-52 bg-gradient-to-br from-blue-900 to-blue-700 relative"><div class="absolute bottom-4 left-4 text-white"><div class="w-9 h-9 bg-gold rounded-lg flex items-center mb-2"><i class="fa-solid fa-dove text-navy"></i></div><h3 class="font-display font-semibold text-lg">Peacebuilding</h3></div></div><div class="p-5"><p class="text-gray-500 text-sm">Promoting peaceful coexistence through dialogue, mediation, reconciliation, and conflict prevention.</p></div></div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md reveal reveal-delay-2"><div class="h-52 bg-gradient-to-br from-teal-700 to-teal-500 relative"><div class="absolute bottom-4 left-4 text-white"><div class="w-9 h-9 bg-gold rounded-lg flex items-center mb-2"><i class="fa-solid fa-droplet text-navy"></i></div><h3 class="font-display font-semibold text-lg">WASH</h3></div></div><div class="p-5"><p class="text-gray-500 text-sm">Improving access to clean water, sanitation facilities, hygiene promotion, and water infrastructure.</p></div></div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md reveal"><div class="h-52 bg-gradient-to-br from-amber-600 to-gold relative"><div class="absolute bottom-4 left-4 text-white"><div class="w-9 h-9 bg-white rounded-lg flex items-center mb-2"><i class="fa-solid fa-wheat-awn text-navy"></i></div><h3 class="font-display font-semibold text-lg">Food Security</h3></div></div><div class="p-5"><p class="text-gray-500 text-sm">Supporting vulnerable households through livelihood programs, agriculture, and resilience building.</p></div></div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md reveal reveal-delay-1"><div class="h-52 bg-gradient-to-br from-forest to-forest-light relative"><div class="absolute bottom-4 left-4 text-white"><div class="w-9 h-9 bg-gold rounded-lg flex items-center mb-2"><i class="fa-solid fa-graduation-cap text-navy"></i></div><h3 class="font-display font-semibold text-lg">Education</h3></div></div><div class="p-5"><p class="text-gray-500 text-sm">Increasing access to quality education, supporting schools, and promoting child protection.</p></div></div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md reveal reveal-delay-2"><div class="h-52 bg-gradient-to-br from-purple-800 to-purple-600 relative"><div class="absolute bottom-4 left-4 text-white"><div class="w-9 h-9 bg-gold rounded-lg flex items-center mb-2"><i class="fa-solid fa-venus text-navy"></i></div><h3 class="font-display font-semibold text-lg">Gender Equality</h3></div></div><div class="p-5"><p class="text-gray-500 text-sm">Advancing women's rights, preventing GBV, empowering women and girls, and inclusive participation.</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 lg:py-32 bg-brand-gray">
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 lg:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 lg:mb-16 reveal">
-                <div>
-                    <h2 class="text-brand-gold font-bold tracking-[0.2em] uppercase text-xs lg:text-sm mb-3">Portfolio</h2>
-                    <h3 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-2">Featured Projects</h3>
-                    <p class="text-gray-400 text-sm lg:text-lg max-w-xl">Excellence in every build — a glimpse of our craftsmanship.</p>
+            <div class="text-center mb-16 reveal"><span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Key Initiatives</span><h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-3">Our <span class="text-forest italic">Projects</span></h2></div>
+            <div class="space-y-8">
+                <div class="reveal bg-cream rounded-2xl p-6 lg:p-8 shadow-md">
+                    <div class="flex flex-wrap items-start gap-4 mb-4"><div class="w-12 h-12 bg-navy rounded-xl flex items-center justify-center"><i class="fa-solid fa-faucet text-gold text-xl"></i></div><div><h3 class="font-display font-semibold text-2xl text-navy">Safe Water Access Initiative</h3><p class="text-gray-500 text-sm">Construction of community boreholes in Atab, Gulwei, Mayom Biong</p></div></div>
+                    <p class="text-gray-600 mb-3"><strong>Achievements:</strong> Increased access to safe drinking water, reduced walking distances for women and children, improved sanitation and hygiene, community water management training, sustainable borehole maintenance systems.</p>
+                    <p class="text-gold font-medium text-sm">Partner: United Nations Mission in South Sudan (UNMISS)</p>
                 </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                <div class="group relative overflow-hidden rounded-xl h-64 lg:h-96 reveal">
-                    <img src="https://image.qwenlm.ai/public_source/30fc3533-c093-40eb-98a7-78430891ab04/16c398d5b-df88-42a7-8755-f8923d7698cc.png" alt="Modern Residential" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 lg:p-8">
-                        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Residential</span>
-                        <h4 class="text-white text-lg lg:text-2xl font-serif font-bold">Luxury Villa, Juba</h4>
-                    </div>
+                <div class="reveal reveal-delay-1 bg-cream rounded-2xl p-6 lg:p-8 shadow-md">
+                    <div class="flex flex-wrap items-start gap-4 mb-4"><div class="w-12 h-12 bg-forest rounded-xl flex items-center justify-center"><i class="fa-solid fa-building-shield text-white text-xl"></i></div><div><h3 class="font-display font-semibold text-2xl text-navy">Luony Akeer Police Post</h3><p class="text-gray-500 text-sm">Modern police facility in Gogrial East County with offices, armory, detention cells, and wash facilities.</p></div></div>
+                    <p class="text-gray-600 mb-3"><strong>Impact:</strong> Enhanced rule of law, improved public safety, reduced criminal activity, strengthened justice delivery.</p>
+                    <p class="text-gold font-medium text-sm">Partner: UNMISS</p>
                 </div>
-                <div class="group relative overflow-hidden rounded-xl h-64 lg:h-96 lg:col-span-2 reveal">
-                    <img src="https://image.qwenlm.ai/public_source/30fc3533-c093-40eb-98a7-78430891ab04/185acea17-fd97-4239-8e51-164f005aaa0f.png" alt="Commercial Complex" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 lg:p-8">
-                        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Commercial</span>
-                        <h4 class="text-white text-lg lg:text-2xl font-serif font-bold">Business Hub, Hai Amarat</h4>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-xl h-64 lg:h-96 lg:col-span-3 reveal">
-                    <img src="https://image.qwenlm.ai/public_source/30fc3533-c093-40eb-98a7-78430891ab04/14fe7674c-5f53-4f60-9596-e4566709f018.png" alt="Modern Interior" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 lg:p-8">
-                        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Architectural</span>
-                        <h4 class="text-white text-lg lg:text-2xl font-serif font-bold">Modern Open-Plan Living</h4>
-                    </div>
+                <div class="reveal reveal-delay-2 bg-cream rounded-2xl p-6 lg:p-8 shadow-md">
+                    <div class="flex flex-wrap items-start gap-4 mb-4"><div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center"><i class="fa-solid fa-people-group text-gold text-xl"></i></div><div><h3 class="font-display font-semibold text-2xl text-navy">Community-Based Protection Networks (CBPN)</h3><p class="text-gray-500 text-sm">Gogrial West, Tonj North, Tonj South</p></div></div>
+                    <p class="text-gray-600 mb-3"><strong>Objectives:</strong> Early warning systems, conflict monitoring, crisis reporting, peacebuilding, child protection, GBV prevention.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Areas -->
-    <section id="areas" class="py-16 lg:py-24 bg-brand-dark border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center reveal">
-            <h2 class="text-2xl lg:text-3xl font-serif font-bold text-white mb-8 lg:mb-12">Proudly Serving Greater Juba & South Sudan</h2>
-            <div class="flex flex-wrap justify-center gap-2 lg:gap-4">
-                <span class="px-5 lg:px-8 py-3 lg:py-4 bg-white/5 rounded-full text-gray-300 hover:text-brand-gold transition-all text-xs lg:text-sm font-medium">Juba CBD</span>
-                <span class="px-5 lg:px-8 py-3 lg:py-4 bg-white/5 rounded-full text-gray-300 hover:text-brand-gold transition-all text-xs lg:text-sm font-medium">Hai Amarat</span>
-                <span class="px-5 lg:px-8 py-3 lg:py-4 bg-white/5 rounded-full text-gray-300 hover:text-brand-gold transition-all text-xs lg:text-sm font-medium">Munuki</span>
-                <span class="px-5 lg:px-8 py-3 lg:py-4 bg-white/5 rounded-full text-gray-300 hover:text-brand-gold transition-all text-xs lg:text-sm font-medium">Gudele</span>
-                <span class="px-5 lg:px-8 py-3 lg:py-4 bg-white/5 rounded-full text-gray-300 hover:text-brand-gold transition-all text-xs lg:text-sm font-medium">Kator</span>
-                <span class="px-5 lg:px-8 py-3 lg:py-4 bg-white/5 rounded-full text-gray-300 hover:text-brand-gold transition-all text-xs lg:text-sm font-medium">Rock City</span>
-                <span class="px-5 lg:px-8 py-3 lg:py-4 bg-white/5 rounded-full text-gray-300 hover:text-brand-gold transition-all text-xs lg:text-sm font-medium">Thongpiny</span>
-                <span class="px-5 lg:px-8 py-3 lg:py-4 bg-white/5 rounded-full text-gray-300 hover:text-brand-gold transition-all text-xs lg:text-sm font-medium">Lologo</span>
+    <!-- Stories of Change -->
+    <section id="stories" class="py-20 lg:py-32 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 reveal"><span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Human Impact</span><h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-3">Stories of <span class="text-forest italic">Change</span></h2></div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal bg-white rounded-2xl p-6 shadow-md story-card">
+                    <div class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-droplet text-navy text-xl"></i></div>
+                    <h3 class="font-display font-semibold text-xl text-navy mb-2">💧 Bringing Clean Water to Atab</h3>
+                    <p class="text-gray-600 text-sm mb-4">After years of relying on unsafe water sources, more than 2,000 residents in Atab now have access to clean drinking water through CIDA's borehole project implemented with UNMISS.</p>
+                    <blockquote class="border-l-2 border-gold pl-3 italic text-gray-500 text-sm mb-4">"Our children no longer walk several kilometers for water. Life has changed." — Community Member</blockquote>
+                    <a href="#" class="text-forest font-semibold text-sm hover:text-gold inline-flex items-center gap-1">Read Full Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+                <div class="reveal reveal-delay-1 bg-white rounded-2xl p-6 shadow-md story-card">
+                    <div class="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-shield-halved text-forest text-xl"></i></div>
+                    <h3 class="font-display font-semibold text-xl text-navy mb-2">👮 Strengthening Community Safety</h3>
+                    <p class="text-gray-600 text-sm mb-4">The Luony Akeer Police Post now provides a secure facility for law enforcement, helping reduce insecurity and improve justice services in Gogrial East County.</p>
+                    <a href="#" class="text-forest font-semibold text-sm hover:text-gold inline-flex items-center gap-1">Read Full Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+                <div class="reveal reveal-delay-2 bg-white rounded-2xl p-6 shadow-md story-card">
+                    <div class="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-handshake text-gold text-xl"></i></div>
+                    <h3 class="font-display font-semibold text-xl text-navy mb-2">🤝 Building Peace Together</h3>
+                    <p class="text-gray-600 text-sm mb-4">Community-Based Protection Networks are helping identify conflicts before they escalate, bringing communities together through dialogue and strengthening social cohesion.</p>
+                    <a href="#" class="text-forest font-semibold text-sm hover:text-gold inline-flex items-center gap-1">Read Full Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates -->
+    <section id="news" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 reveal"><span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Stay Informed</span><h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-3">Latest News & <span class="text-forest italic">Updates</span></h2></div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal news-card bg-cream rounded-2xl p-6 border hover:shadow-lg">
+                    <div class="flex items-center gap-3 text-gold text-sm mb-3"><i class="fa-regular fa-calendar"></i> July 2026</div>
+                    <h3 class="font-semibold text-navy text-lg mb-2">📰 Boreholes Handed Over to Communities</h3>
+                    <p class="text-gray-500 text-sm">CIDA officially handed over newly constructed boreholes in Atab and Gulwei, ensuring sustainable access to clean water for thousands.</p>
+                    <a href="#" class="inline-flex items-center gap-1 text-forest font-semibold text-xs mt-4 hover:text-gold">Read More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+                <div class="reveal reveal-delay-1 news-card bg-cream rounded-2xl p-6 border hover:shadow-lg">
+                    <div class="flex items-center gap-3 text-gold text-sm mb-3"><i class="fa-regular fa-calendar"></i> June 2026</div>
+                    <h3 class="font-semibold text-navy text-lg mb-2">📰 Stakeholder Engagement on Protection of Civilians</h3>
+                    <p class="text-gray-500 text-sm">CIDA facilitated a high-level stakeholder dialogue on civilian protection, bringing together government officials, UNMISS, and community leaders.</p>
+                    <a href="#" class="inline-flex items-center gap-1 text-forest font-semibold text-xs mt-4 hover:text-gold">Read More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+                <div class="reveal reveal-delay-2 news-card bg-cream rounded-2xl p-6 border hover:shadow-lg">
+                    <div class="flex items-center gap-3 text-gold text-sm mb-3"><i class="fa-regular fa-calendar"></i> May 2026</div>
+                    <h3 class="font-semibold text-navy text-lg mb-2">📰 Community Peace Dialogue Successfully Conducted</h3>
+                    <p class="text-gray-500 text-sm">A series of peace dialogues in Tonj North brought conflicting communities together, resulting in a renewed commitment to peaceful coexistence.</p>
+                    <a href="#" class="inline-flex items-center gap-1 text-forest font-semibold text-xs mt-4 hover:text-gold">Read More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-10 reveal">
+                <a href="#" class="inline-flex items-center gap-2 bg-navy text-white font-semibold px-8 py-3.5 rounded-full hover:bg-navy-light shadow-lg">View All Updates <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="relative py-28 lg:py-36 overflow-hidden bg-navy">
+        <div class="absolute inset-0"><img src="assets/cida3.jpg" class="w-full h-full object-cover filter brightness-75"><div class="absolute inset-0 overlay-impact"></div></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+            <div class="reveal mb-12"><span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Our Reach</span><h2 class="font-display text-4xl lg:text-5xl font-bold text-white mt-3">Creating <span class="text-gold italic">Measurable Impact</span></h2></div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="reveal reveal-delay-1"><div class="text-gold font-display text-5xl lg:text-6xl font-bold counter" data-target="10000">0</div><div class="text-white/80 text-lg">People Reached</div></div>
+                <div class="reveal reveal-delay-2"><div class="text-gold font-display text-5xl lg:text-6xl font-bold counter" data-target="20">0</div><div class="text-white/80 text-lg">Projects</div></div>
+                <div class="reveal reveal-delay-3"><div class="text-gold font-display text-5xl lg:text-6xl font-bold counter" data-target="8">0</div><div class="text-white/80 text-lg">Counties</div></div>
+                <div class="reveal reveal-delay-4"><div class="text-gold font-display text-5xl lg:text-6xl font-bold counter" data-target="5">0</div><div class="text-white/80 text-lg">Active Partners</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Carousel -->
+    <section id="partners" class="py-20 lg:py-32 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 mb-12 text-center reveal"><span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Collaboration</span><h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-3">Our <span class="text-forest italic">Partners</span></h2></div>
+        <div class="partner-carousel-wrapper reveal">
+            <div class="partner-carousel-track py-4">
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-globe text-navy text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">UNMISS</span></div></div>
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-building-columns text-forest text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">Warrap State Government</span></div></div>
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-users text-gold text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">Local Chiefs</span></div></div>
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-hand-holding-heart text-navy text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">Civil Society</span></div></div>
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-seedling text-forest text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">Community Volunteers</span></div></div>
+                <!-- duplicates for loop -->
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-globe text-navy text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">UNMISS</span></div></div>
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-building-columns text-forest text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">Warrap State Government</span></div></div>
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-users text-gold text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">Local Chiefs</span></div></div>
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-hand-holding-heart text-navy text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">Civil Society</span></div></div>
+                <div class="min-w-[200px] px-6"><div class="bg-cream rounded-2xl p-6 text-center"><i class="fa-solid fa-seedling text-forest text-2xl mb-2"></i><span class="text-sm font-semibold text-navy">Community Volunteers</span></div></div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 lg:py-32 bg-brand-dark relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-gray to-transparent opacity-50 pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
-                <div class="reveal">
-                    <h2 class="text-brand-gold font-bold tracking-[0.2em] uppercase text-xs lg:text-sm mb-3">Contact Us</h2>
-                    <h3 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight">Let's Build Your <br><span class="text-gradient-gold">Dream Space</span></h3>
-                    <p class="text-gray-400 text-sm lg:text-lg mb-8 font-light">Start your project with ADELI Construction — free consultation and quote.</p>
-                    <div class="space-y-6 lg:space-y-8">
-                        <div class="flex items-start gap-4 lg:gap-6">
-                            <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
-                            <div><h4 class="text-white font-bold text-base">Visit Us</h4><p class="text-gray-400 text-sm">Hai Amarat, Juba, South Sudan</p></div>
-                        </div>
-                        <div class="flex items-start gap-4 lg:gap-6">
-                            <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
-                            <div><h4 class="text-white font-bold text-base">Call / WhatsApp</h4><p class="text-gray-400 text-sm">+211 923 398 799 | +211 980 490 486</p></div>
-                        </div>
-                        <div class="flex items-start gap-4 lg:gap-6">
-                            <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
-                            <div><h4 class="text-white font-bold text-base">Email Us</h4><p class="text-gray-400 text-sm">info@adeliconstruction.com</p></div>
-                        </div>
+    <section id="contact" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8 reveal">
+                    <span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Get In Touch</span>
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy">Contact <span class="text-forest italic">Us</span></h2>
+                    <div class="space-y-5">
+                        <div class="flex gap-4"><div class="w-11 h-11 bg-gold/15 rounded-xl flex items-center justify-center"><i class="fa-solid fa-location-dot text-gold"></i></div><div><h4 class="font-semibold text-navy">Headquarters</h4><p class="text-gray-500">Kuajok, Warrap State, South Sudan</p></div></div>
+                        <div class="flex gap-4"><div class="w-11 h-11 bg-forest/15 rounded-xl flex items-center justify-center"><i class="fa-solid fa-envelope text-forest"></i></div><div><h4 class="font-semibold text-navy">Email</h4><p class="text-gray-500">info@cida-ss.org</p></div></div>
+                        <div class="flex gap-4"><div class="w-11 h-11 bg-navy/10 rounded-xl flex items-center justify-center"><i class="fa-solid fa-phone text-navy"></i></div><div><h4 class="font-semibold text-navy">Phone</h4><p class="text-gray-500">+211 921 621 500</p></div></div>
                     </div>
                 </div>
-                <div class="glass p-6 lg:p-10 rounded-2xl border border-white/10 reveal">
-                    <form class="space-y-5 lg:space-y-6" onsubmit="event.preventDefault(); alert('Message sent! ADELI team will respond promptly.');">
-                        <div class="grid grid-cols-2 gap-4"><input type="text" placeholder="Name" class="modern-input w-full px-4 py-3 rounded-sm"><input type="tel" placeholder="Phone" class="modern-input w-full px-4 py-3 rounded-sm"></div>
-                        <input type="email" placeholder="Email" class="modern-input w-full px-4 py-3 rounded-sm">
-                        <textarea rows="4" placeholder="Message" class="modern-input w-full px-4 py-3 rounded-sm"></textarea>
-                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-brand-gold to-yellow-600 text-brand-dark font-bold tracking-widest uppercase rounded-sm hover:shadow-lg transition-all btn-luxury">Send Message</button>
+                <div class="reveal reveal-delay-2 bg-cream rounded-2xl p-6 sm:p-8 shadow-lg">
+                    <form class="space-y-5">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Name" class="w-full px-4 py-3 rounded-xl border bg-white">
+                            <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-xl border bg-white">
+                        </div>
+                        <textarea rows="4" placeholder="Message" class="w-full px-4 py-3 rounded-xl border bg-white"></textarea>
+                        <button type="submit" class="w-full bg-navy text-white font-semibold py-3.5 rounded-xl hover:bg-navy-light flex items-center justify-center gap-2">Send Message <i class="fa-solid fa-paper-plane text-xs"></i></button>
                     </form>
                 </div>
             </div>
@@ -544,47 +439,105 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black pt-16 pb-8 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-12">
-                <div class="lg:col-span-1"><a href="#" class="text-xl font-serif font-bold tracking-widest text-white flex items-center gap-3 mb-4"><span class="w-8 h-8 bg-gradient-to-br from-brand-gold to-yellow-600 rounded-sm flex items-center justify-center text-brand-dark font-black">A</span><span>ADELI <span class="text-brand-gold">CONSTRUCTION</span></span></a><p class="text-gray-400 text-sm">Building Your Dream with Passion. Juba's trusted construction partner.</p></div>
-                <div><h4 class="text-white text-sm font-bold uppercase mb-4">Quick Links</h4><ul class="space-y-2"><li><a href="#home" class="text-gray-400 hover:text-brand-gold text-sm">Home</a></li><li><a href="#about" class="text-gray-400 hover:text-brand-gold text-sm">About</a></li><li><a href="#services" class="text-gray-400 hover:text-brand-gold text-sm">Services</a></li><li><a href="#contact" class="text-gray-400 hover:text-brand-gold text-sm">Contact</a></li></ul></div>
-                <div><h4 class="text-white text-sm font-bold uppercase mb-4">Services</h4><ul class="space-y-2"><li><span class="text-gray-400 text-sm">Construction</span></li><li><span class="text-gray-400 text-sm">Architectural Design</span></li><li><span class="text-gray-400 text-sm">Engineering</span></li><li><span class="text-gray-400 text-sm">Project Management</span></li></ul></div>
-                <div><h4 class="text-white text-sm font-bold uppercase mb-4">Areas</h4><ul class="space-y-2"><li><span class="text-gray-400 text-sm">Juba</span></li><li><span class="text-gray-400 text-sm">Hai Amarat</span></li><li><span class="text-gray-400 text-sm">Munuki</span></li><li><span class="text-gray-400 text-sm">Kator</span></li></ul></div>
-                <div><h4 class="text-white text-sm font-bold uppercase mb-4">Contact</h4><ul class="space-y-3"><li class="flex gap-2"><svg class="w-4 h-4 text-brand-gold mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><span class="text-gray-400 text-sm">+211 923 398 799</span></li><li class="flex gap-2"><svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span class="text-gray-400 text-sm break-all">info@adeliconstruction.com</span></li></ul></div>
+    <footer class="bg-navy text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3"><div class="w-11 h-11 bg-gold rounded-lg flex items-center justify-center"><span class="font-display font-bold text-navy text-lg">CIDA</span></div><span class="font-display font-semibold text-xl">CIDA South Sudan</span></div>
+                <p class="text-white/55 text-sm max-w-sm">Community Initiative Development Agency – Empowering communities, building resilience since 2015.</p>
             </div>
-            <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500"><p>© 2026 ADELI Construction Co. Ltd — All rights reserved.</p><p>Designed by <a href="#" class="text-brand-gold hover:underline">Riek Gatluak</a></p></div>
+            <div><h4 class="font-semibold text-white mb-4 text-sm uppercase">Quick Links</h4><ul class="space-y-2.5 text-white/55 text-sm"><li><a href="#" class="hover:text-gold">Home</a></li><li><a href="#about" class="hover:text-gold">About</a></li><li><a href="#programs" class="hover:text-gold">Programs</a></li><li><a href="#projects" class="hover:text-gold">Projects</a></li><li><a href="#news" class="hover:text-gold">News & Updates</a></li><li><a href="#contact" class="hover:text-gold">Contact</a></li></ul></div>
+            <div><h4 class="font-semibold text-white mb-4 text-sm uppercase">Programs</h4><ul class="space-y-2.5 text-white/55 text-sm"><li><a href="#programs" class="hover:text-gold">Protection</a></li><li><a href="#programs" class="hover:text-gold">Peacebuilding</a></li><li><a href="#programs" class="hover:text-gold">WASH</a></li><li><a href="#programs" class="hover:text-gold">Food Security</a></li><li><a href="#programs" class="hover:text-gold">Education</a></li></ul></div>
+            <div><h4 class="font-semibold text-white mb-4 text-sm uppercase">Contact</h4><ul class="space-y-2.5 text-white/55 text-sm"><li class="flex gap-2"><i class="fa-solid fa-location-dot text-gold mt-0.5"></i> Kuajok, Warrap State</li><li class="flex gap-2"><i class="fa-solid fa-envelope text-gold mt-0.5"></i> info@cida-ss.org</li><li class="flex gap-2"><i class="fa-solid fa-phone text-gold mt-0.5"></i> +211 921 621 500</li></ul></div>
         </div>
+        <div class="border-t border-white/10 pt-6 text-center text-white/40 text-xs">&copy; 2024 CIDA South Sudan. All rights reserved. A registered NGO in South Sudan.</div>
     </footer>
 
     <script>
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('glass', 'py-3', 'lg:py-4', 'border-white/10');
-                navbar.classList.remove('py-6', 'border-white/0');
-            } else {
-                navbar.classList.remove('glass', 'py-3', 'lg:py-4', 'border-white/10');
-                navbar.classList.add('py-6', 'border-white/0');
-            }
-        });
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); menu.classList.toggle('flex'); });
-        const textElement = document.getElementById('typing-text');
-        const phrases = ["Quality Homes", "Modern Architecture", "Commercial Spaces", "Your Dreams"];
-        let phraseIndex = 0, charIndex = 0, isDeleting = false, typeSpeed = 100;
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) { textElement.textContent = currentPhrase.substring(0, charIndex - 1); charIndex--; typeSpeed = 50; } 
-            else { textElement.textContent = currentPhrase.substring(0, charIndex + 1); charIndex++; typeSpeed = 100; }
-            if (!isDeleting && charIndex === currentPhrase.length) { isDeleting = true; typeSpeed = 2000; } 
-            else if (isDeleting && charIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typeSpeed = 500; }
-            setTimeout(type, typeSpeed);
+        function toggleMobileDropdown(button) {
+            const menu = button.nextElementSibling;
+            document.querySelectorAll('.mobile-dropdown-menu.open').forEach(m => { if (m !== menu) m.classList.remove('open'); });
+            document.querySelectorAll('.mobile-dropdown-btn.open').forEach(b => { if (b !== button) b.classList.remove('open'); });
+            menu.classList.toggle('open');
+            button.classList.toggle('open');
         }
-        document.addEventListener('DOMContentLoaded', type);
-        function reveal() { document.querySelectorAll(".reveal").forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add("active"); }); }
-        window.addEventListener("scroll", reveal); reveal();
+
+        (function() {
+            const mainNav = document.getElementById('mainNav');
+            function updateNav() {
+                const scrollY = window.scrollY;
+                const isMobile = window.innerWidth < 1024;
+                mainNav.style.top = (scrollY > 80 || isMobile) ? '0' : '37px';
+                mainNav.classList.toggle('glass-dark', scrollY > 80);
+            }
+            window.addEventListener('scroll', updateNav, { passive: true });
+            window.addEventListener('resize', updateNav);
+            updateNav();
+
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const icon = mobileMenuBtn.querySelector('i');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                });
+            });
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+            }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            document.querySelectorAll('.img-reveal').forEach(el => revealObserver.observe(el));
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const start = performance.now();
+                        function animate(now) {
+                            const progress = Math.min((now - start) / duration, 1);
+                            counter.textContent = Math.floor((1 - Math.pow(1 - progress, 3)) * target) + '+';
+                            if (progress < 1) requestAnimationFrame(animate);
+                            else counter.textContent = target + '+';
+                        }
+                        requestAnimationFrame(animate);
+                        counterObserver.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - mainNav.offsetHeight - 20, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const btn = form.querySelector('button[type="submit"]');
+                    btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
+                    btn.classList.add('bg-forest');
+                    setTimeout(() => { btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane text-xs"></i>'; btn.classList.remove('bg-forest'); form.reset(); }, 2500);
+                });
+            }
+        })();
     </script>
 </body>
 </html>
